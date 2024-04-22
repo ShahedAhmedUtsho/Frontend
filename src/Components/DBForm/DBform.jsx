@@ -2,37 +2,35 @@
 'use client'
 import { Envelope, User } from 'phosphor-react'
 import { Button, Icon, Input, Label } from 'keep-react'
-import { useContext } from 'react'
-import { Context } from '../Home/Home'
 
-const Form = () => {
-    const {users,setUsers} =useContext(Context);
+
+const DbForm = () => {
+    
 
     const handlePost = e =>{
         e.preventDefault()
-        const email= e.target.email.value ;
-        const username= e.target.name.value ;
-        const city= e.target.city.value ;
-        const newUser = {username,email,city}
-        
-        console.log(newUser) ;
-        e.target.reset()
-        fetch('http://localhost:3000/users',{
-            method:'post',
+        const form = e.target;
+        const email=form.email.value ;
+        const username= form.name.value ;
+        const city= form.city.value ;
+        const newUser = {username,email,city};
+        console.log(newUser )
+
+
+        fetch('http://localhost:3000/dbusers',{
+            method: 'POST' ,
             headers:{
-                'content-type': 'application/json'
+                'content-type':'application/json'
             },
             body:JSON.stringify(newUser)
-        }).then(res => res.json())
-        .then(data => {
-           
-                
-                const newUsers = [...users ,data]
-            setUsers(newUsers)
-           
-        })
 
-
+        }).then(res=>res.json())
+        .then(data=>{
+          form.reset()
+          console.log(data)
+        } )
+        
+     
     }
   return (
     <form onSubmit={handlePost} className="mx-auto max-w-md space-y-2  rounded-lg border p-8 shadow-md">
@@ -80,4 +78,4 @@ const Form = () => {
 }
 
 
-export default Form;
+export default DbForm;

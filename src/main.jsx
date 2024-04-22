@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home.jsx';
 import Root from './Routes/Root.jsx';
+import MongoDB from './Components/MongoDB/MongoDB.jsx';
+import About from './Components/About/About.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +18,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/mongodb",
+        loader:()=>fetch('http://localhost:3000/dbusers'),
+        element: <MongoDB></MongoDB>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ]
   },

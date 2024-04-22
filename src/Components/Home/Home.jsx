@@ -20,9 +20,10 @@ useEffect(() => {
 const shareContext = {users,setUsers}
     return (
        <Context.Provider value={shareContext}>
-         <div className="min-h-[100vh] p-5  bg-gray-900">
-
-<div className=" p-4 rounded-sm  md:flex-row flex-col flex gap-3">
+        
+         <div className="min-h-[100vh] ">
+        
+<div className="  rounded-sm  md:flex-row flex-col flex gap-3">
 
 <div className="md:w-2/3  rounded-sm  order-1 md:order-2   self-start  grid gap-2   grid-cols-2">
 {

@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.header .active{
+    background: #334155;
+    color: #cbd5e1;
+}
+.header .navlink {
+    padding: 0.3em 1em;
+    border-radius: 5px;
+}
